@@ -1,4 +1,4 @@
-package com.example.model
+package com.example.models
 
 enum class RouteType(val code: Int) {
     TRAM(0),
