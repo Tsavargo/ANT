@@ -1,10 +1,9 @@
 package com.example.models
 
-class Trip(
-    routeID: String,
-    tripID: String,
-    serviceID: String,
-    headSign: String
-) {
+data class Trip(
+    val routeID: String,
+    val tripID: String,
+    val serviceID: String,
+    val headSign: String) {
 
 }

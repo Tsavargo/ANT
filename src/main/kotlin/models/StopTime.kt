@@ -1,10 +1,10 @@
 package com.example.models
 
-class StopTime(
-    tripID: String,
-    stopID: String,
-    time: String,
-    stopSequence: Int,
-    distance: Float,
-) {
+data class StopTime(
+    val tripID: String,
+    val stopID: String,
+    val time: String,
+    val stopSequence: Int,
+    val distance: Float) {
+
 }
