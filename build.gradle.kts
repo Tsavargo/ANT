@@ -11,6 +11,7 @@ repositories {
 
 dependencies {
     testImplementation(kotlin("test"))
+    implementation("com.jsoizo:kotlin-csv-jvm:2.0.0")
 }
 
 kotlin {
