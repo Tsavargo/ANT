@@ -1,9 +1,5 @@
 package com.example.models
 
-data class Trip(
-    val routeID: String,
+class Trip(
     val tripID: String,
-    val serviceID: String,
-    val headSign: String) {
-
-}
+    val route: Route)

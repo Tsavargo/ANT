@@ -1,9 +1,7 @@
 package com.example.models
 
-data class Stop(
+class Stop(
     val stopID: String,
     val stopName: String,
     val latitude: Double,
-    val longitude: Double) {
-
-}
+    val longitude: Double)

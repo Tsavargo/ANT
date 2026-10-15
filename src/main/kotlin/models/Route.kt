@@ -1,11 +1,7 @@
 package com.example.models
 
-data class Route(
-    val agencyID: String,
+class Route(
     val routeID: String,
-    val shortName: String,
-    val longName: String,
+    val name: String,
     val type: RouteType,
-    val color: Color) {
-
-}
+    val color: Color)
