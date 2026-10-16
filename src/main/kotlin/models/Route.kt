@@ -1,6 +1,6 @@
 package com.example.models
 
-class Route(
+data class Route(
     val routeID: String,
     val name: String,
     val type: RouteType,

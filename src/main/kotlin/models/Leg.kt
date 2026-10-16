@@ -1,6 +1,6 @@
 package com.example.models
 
-class Leg(
+data class Leg(
     val trip: Trip,
     val fromStop: Stop,
     val toStop: Stop,

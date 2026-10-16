@@ -1,5 +1,5 @@
 package com.example.models
 
-class Trip(
+data class Trip(
     val tripID: String,
     val route: Route)

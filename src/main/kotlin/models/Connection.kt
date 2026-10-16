@@ -1,6 +1,6 @@
 package com.example.models
 
-class Connection(
+data class Connection(
     val fromStop: Stop,
     val toStop: Stop,
     val departure: Int,
