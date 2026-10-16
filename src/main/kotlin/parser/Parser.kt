@@ -10,7 +10,9 @@ class Parser {
     fun read(path: String): Unit {
         reader.readFromFile(path) { rows ->
             val records: List<LinkedHashMap<String, String>> = rows.withHeader().toList()
-            // TODO: map the lines into in-memory objects
+            records.forEach { record: LinkedHashMap<String, String> ->
+                // TODO: implement a universal mapping logic to create class instances from the lines
+            }
         }
     }
 }
