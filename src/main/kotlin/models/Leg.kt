@@ -5,4 +5,5 @@ data class Leg(
     val fromStop: Stop,
     val toStop: Stop,
     val departureTime: Int,
-    val arrivalTime: Int)
+    val arrivalTime: Int
+)
