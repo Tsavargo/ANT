@@ -1,4 +1,4 @@
-package com.example.models
+package com.example.models.data
 
 import kotlin.test.Test
 import kotlin.test.assertEquals

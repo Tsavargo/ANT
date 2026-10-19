@@ -1,4 +1,4 @@
-package com.example.models
+package com.example.models.data
 
 data class Stop(
     val stopId: String,

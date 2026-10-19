@@ -1,4 +1,7 @@
-package com.example.models
+package com.example.models.routing
+
+import com.example.models.data.Stop
+import com.example.models.data.Trip
 
 data class Leg(
     val trip: Trip,
