@@ -6,7 +6,8 @@ enum class RouteType(val code: Int) {
     RAIL(2),
     BUS(3),
     FERRY(4),
-    TROLLEY(11);
+    TROLLEY(11),
+    HEV(109);
 
     companion object {
         fun fromCode(code: Int): RouteType {
@@ -17,6 +18,7 @@ enum class RouteType(val code: Int) {
                 3 -> BUS
                 4 -> FERRY
                 11 -> TROLLEY
+                109 -> HEV
                 else -> throw IllegalArgumentException("Invalid route type: $code")
             }
         }
