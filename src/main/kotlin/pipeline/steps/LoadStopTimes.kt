@@ -5,6 +5,7 @@ import com.example.parser.Parser
 import com.example.parser.RecordMapper
 import com.example.pipeline.Step
 import com.example.repositories.Repositories
+import com.example.util.TimeConverter
 
 class LoadStopTimes(private val path: String) : Step {
     override fun run(repositories: Repositories) {
@@ -13,19 +14,13 @@ class LoadStopTimes(private val path: String) : Step {
                 tripId = record.getValue("trip_id"),
                 stopId = record.getValue("stop_id"),
                 sequence = record.getValue("stop_sequence").toInt(),
-                arrival = parseTime(record.getValue("arrival_time")),
-                departure = parseTime(record.getValue("departure_time"))
+                arrival = TimeConverter.textToTime(record.getValue("arrival_time")),
+                departure = TimeConverter.textToTime(record.getValue("departure_time"))
             )
         }
         val stopTimes = Parser().read(path, mapper)
         for (stopTime in stopTimes) {
             repositories.stopTimes.add(stopTime)
         }
-    }
-
-    /** "HH:MM:SS" to seconds since midnight. */
-    private fun parseTime(time: String): Int {
-        val (hour, minute, second) = time.trim().split(":").map { it.toInt() }
-        return hour * 3600 + minute * 60 + second
     }
 }

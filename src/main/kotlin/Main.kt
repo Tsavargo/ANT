@@ -1,5 +1,6 @@
 package com.example
 
+import com.example.models.data.Stop
 import com.example.models.routing.Network
 import com.example.pipeline.Pipeline
 import com.example.pipeline.steps.LoadRoutes
@@ -8,6 +9,7 @@ import com.example.pipeline.steps.LoadStops
 import com.example.pipeline.steps.LoadTrips
 import com.example.services.ConnectionBuilder
 import com.example.services.Planner
+import com.example.util.TimeConverter
 import java.io.FileNotFoundException
 import kotlin.system.exitProcess
 
@@ -30,5 +32,16 @@ fun main() {
     println("trips=${repositories.trips.all().size}")
 
     val network: Network = Network(ConnectionBuilder.build(repositories))
-    println("networks=${network.connections.size}")
+    println("connections=${network.connections.size}")
+
+    val fromStop: Stop = repositories.stops.find("Blaha Lujza tér")
+    val toStop: Stop = repositories.stops.find("Savoya Park")
+    val time: Int = 10 * 60 * 60
+
+    val planner = Planner(network)
+    val legs = planner.plan(sourceStop=fromStop, destinationStop=toStop, startTime=time)
+
+    legs?.forEach { leg ->
+        println("From: ${leg.fromStop.stopName} -> To: ${leg.toStop.stopName} with ${leg.trip.route.name}")
+    } ?: println("${toStop.stopName} is not reachable from ${fromStop.stopName} at ${TimeConverter.timeToText(time)}")
 }
